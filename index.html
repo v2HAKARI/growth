@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Abrindo camera JAVASCRIPT</title>
+</head>
+<body>
+	<video id="video"></video>
+
+	<script type="text/javascript">
+		navigator.mediaDevices.getUserMedia({video: true})
+		.then(function (mediaStream) {
+			const video = document.querySelector('#video');
+			video.srcObject = mediaStream;
+			video.play();
+		})
+		.catch(function (err) {
+			console.log('Não há permissões para acessar a webcam')
+		})
+
+	</script>
+</body>
+</html>
